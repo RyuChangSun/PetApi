@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rest.api">
+    <select id="getMemberList" resultType="com.rest.api.model.Member">
+        SELECT
+            user_no,
+            email,
+            name,
+            password
+        FROM
+            member
+    </select>
+    <select id="getMemberByUserNo" parameterType="int" resultType="com.rest.api.model.Member">
+        SELECT
+            user_no,
+            email,
+            name,
+            password
+        FROM
+            member
+        WHERE
+        	user_no = #{user_no}
+    </select>
+    <insert id="insertMember" parameterType="com.rest.api.model.Member" useGeneratedKeys="true" keyProperty="user_no">
+        INSERT INTO member 
+            (email,
+            name,
+            password)
+        VALUES
+            (#{email},
+            #{name},
+            #{password})
+    </insert>
+    <update id="updateMember" parameterType="com.rest.api.model.Member">
+        UPDATE member 
+		SET
+            email = #{email},
+            name = #{name},
+            password = #{password}
+        WHERE
+            user_no = #{user_no}
+    </update>
+    <delete id="deleteMember" parameterType="int">
+        DELETE FROM member 
+		WHERE user_no = #{user_no}
+    </delete>
+</mapper>
