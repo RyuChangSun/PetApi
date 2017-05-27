@@ -6,16 +6,16 @@
         SELECT
             seq_member,
             email,
-            name,
+            member_name,
             password
         FROM
-            member
+            member;
     </select>
     <select id="getMemberByUserNo" parameterType="int" resultType="com.rest.api.member.model.Member">
         SELECT
             user_no,
             email,
-            name,
+            member_name,
             password
         FROM
             member
