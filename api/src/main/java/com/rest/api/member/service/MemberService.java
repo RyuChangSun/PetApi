@@ -1,8 +1,8 @@
-package com.rest.api.service;
+package com.rest.api.member.service;
 
 import java.util.List;
 
-import com.rest.api.model.Member;
+import com.rest.api.member.model.Member;
 
 public interface MemberService {
      

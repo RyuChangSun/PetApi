@@ -1,4 +1,4 @@
-package com.rest.api.dao.impl;
+package com.rest.api.member.dao.impl;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.rest.api.dao.MemberDAO;
-import com.rest.api.model.Member;
+import com.rest.api.member.dao.MemberDAO;
+import com.rest.api.member.model.Member;
 
 @Repository("memberDao")
 public class MemberDAOImpl implements MemberDAO {

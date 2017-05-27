@@ -1,8 +1,8 @@
-package com.rest.api.dao;
+package com.rest.api.member.dao;
 
 import java.util.List;
 
-import com.rest.api.model.Member;
+import com.rest.api.member.model.Member;
 
 public interface MemberDAO {
 	List<Member> getMemberList();

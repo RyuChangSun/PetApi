@@ -1,4 +1,4 @@
-package com.rest.api.model;
+package com.rest.api.member.model;
 
 public class Member {
 
