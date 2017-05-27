@@ -2,16 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.rest.api">
-    <select id="getMemberList" resultType="com.rest.api.model.Member">
+    <select id="getMemberList" resultType="com.rest.api.member.model.Member">
         SELECT
-            user_no,
+            seq_member,
             email,
             name,
             password
         FROM
             member
     </select>
-    <select id="getMemberByUserNo" parameterType="int" resultType="com.rest.api.model.Member">
+    <select id="getMemberByUserNo" parameterType="int" resultType="com.rest.api.member.model.Member">
         SELECT
             user_no,
             email,
@@ -22,7 +22,7 @@
         WHERE
         	user_no = #{user_no}
     </select>
-    <insert id="insertMember" parameterType="com.rest.api.model.Member" useGeneratedKeys="true" keyProperty="user_no">
+    <insert id="insertMember" parameterType="com.rest.api.member.model.Member" useGeneratedKeys="true" keyProperty="user_no">
         INSERT INTO member 
             (email,
             name,
@@ -32,7 +32,7 @@
             #{name},
             #{password})
     </insert>
-    <update id="updateMember" parameterType="com.rest.api.model.Member">
+    <update id="updateMember" parameterType="com.rest.api.member.model.Member">
         UPDATE member 
 		SET
             email = #{email},

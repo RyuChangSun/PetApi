@@ -1,4 +1,4 @@
-package com.rest.api.service.impl;
+package com.rest.api.member.service.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.rest.api.dao.MemberDAO;
-import com.rest.api.model.Member;
-import com.rest.api.service.MemberService;
+import com.rest.api.member.dao.MemberDAO;
+import com.rest.api.member.model.Member;
+import com.rest.api.member.service.MemberService;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
