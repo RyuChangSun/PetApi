@@ -1,4 +1,4 @@
-package com.rest.api.member.service.impl;
+package com.rest.api.member.service;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.rest.api.member.dao.MemberDAO;
 import com.rest.api.member.model.Member;
-import com.rest.api.member.service.MemberService;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
