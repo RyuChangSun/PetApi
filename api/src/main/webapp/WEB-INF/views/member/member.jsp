@@ -6,7 +6,7 @@
     <title>Home</title>
 </head>
 <body>
-
+1
 <c:choose>
 	<c:when test="${resultType=='memberList'}">
 		<h1>
