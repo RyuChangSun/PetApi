@@ -1,4 +1,4 @@
-package com.rest.api.util;
+package com.rest.api.common.util;
 
 import java.util.List;
 

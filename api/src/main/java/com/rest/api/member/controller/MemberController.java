@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.rest.api.common.util.CommonUtil;
 import com.rest.api.member.model.Member;
 import com.rest.api.member.service.MemberService;
-import com.rest.api.util.CommonUtil;
 
 @Controller
 public class MemberController {
