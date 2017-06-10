@@ -17,7 +17,7 @@ public class AspectLogger {
 	@Resource(name="logDao")
 	private LogDAO logDAO;
 		
-	@Before("execution(* com.rest.api.service.*Service.*(..))")
+	@Before("execution(* com.rest.api..*Service.*(..))")
     public void logBefore(JoinPoint joinPoint) {
 		
     	Log log = new Log();
@@ -31,7 +31,7 @@ public class AspectLogger {
         System.out.println("*** hijacked : " + joinPoint.getSignature().getName());
     }
 	
-	@After("execution(* com.rest.api.service.*Service.*(..))")
+	@After("execution(* com.rest.api..*Service.*(..))")
 	public void logAfter(JoinPoint joinPoint) {
         System.out.println("*** logAfter() is running!");
         System.out.println("*** hijacked : " + joinPoint.getSignature().getName());

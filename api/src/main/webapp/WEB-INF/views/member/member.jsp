@@ -21,9 +21,9 @@
 		    </tr>
 		<c:forEach var="member" items="${members}">
 		    <tr align="center">
-		        <td>${member.user_no}</td>
+		        <td>${member.seq_member}</td>
 		        <td>${member.email}</td>
-		        <td>${member.name}</td>
+		        <td>${member.member_name}</td>
 		        <td>${member.password}</td>
 		    </tr>
 		</c:forEach>

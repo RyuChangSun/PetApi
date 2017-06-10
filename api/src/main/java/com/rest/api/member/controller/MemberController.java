@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rest.api.common.util.CommonUtil;
@@ -19,19 +20,20 @@ public class MemberController {
     @Autowired
     MemberService memberService;
      
+    @ResponseBody
     @RequestMapping(value = "/memberList", method = RequestMethod.GET)
-    public ModelAndView memberList() {
+    public String memberList() {
 
     	List<Member> members =  memberService.getMemberList();
     	String json = CommonUtil.convertStringByModel(members);
     	
-    	ModelAndView model = new ModelAndView();
+/*    	ModelAndView model = new ModelAndView();
 		model.addObject("resultType", "memberList");
         model.addObject("members", members);
         model.addObject("jsonString", json);
-        model.setViewName("/member/member");
+        model.setViewName("/member/member");*/
         
-        return model;
+        return json;
     }
 
     @RequestMapping(value = "/memberByUserNo", method = RequestMethod.GET)    
@@ -50,7 +52,7 @@ public class MemberController {
         return model;
     }
     
-    @RequestMapping(value = "/insertMember", method = RequestMethod.GET)
+/*    @RequestMapping(value = "/insertMember", method = RequestMethod.GET)
     public ModelAndView insertMember(
     		@RequestParam(value="email") String email,
     		@RequestParam(value="name") String name,
@@ -111,5 +113,5 @@ public class MemberController {
         model.setViewName("/member/member");
                 
         return model;
-    }
+    }*/
 }
