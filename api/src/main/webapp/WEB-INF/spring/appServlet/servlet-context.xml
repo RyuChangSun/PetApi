@@ -23,7 +23,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.rest.api.controller" />
+	<context:component-scan base-package="com.rest.api" />
 	
 	<!-- 다국어 설정 시작 -->
     <beans:bean id="messageSource"

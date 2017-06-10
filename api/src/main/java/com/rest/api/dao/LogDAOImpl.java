@@ -1,4 +1,4 @@
-package com.rest.api.dao.impl;
+package com.rest.api.dao;
 
 import java.util.List;
 
