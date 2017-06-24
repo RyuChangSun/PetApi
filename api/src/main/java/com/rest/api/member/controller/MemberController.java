@@ -2,6 +2,8 @@ package com.rest.api.member.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,20 @@ public class MemberController {
 
     @Autowired
     MemberService memberService;
-     
+
+    @ResponseBody
+    @RequestMapping(value = "/signIn", method = RequestMethod.POST)
+    public String signIn(HttpServletRequest request) {
+
+    	String id = request.getParameter("id").toString();
+    	String pass = request.getParameter("pass").toString();
+    	
+    	Member members =  memberService.SignIn(id, pass);
+    	String json = CommonUtil.convertStringByModel(members);
+        
+        return json;
+    }    
+    
     @ResponseBody
     @RequestMapping(value = "/memberList", method = RequestMethod.GET)
     public String memberList() {
