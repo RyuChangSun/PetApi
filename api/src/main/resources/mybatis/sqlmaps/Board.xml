@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rest.api">
+    <select id="getBoardList" resultType="com.rest.api.board.model.Board">
+        SELECT bd.seq_board, bd.seq_member, mb.member_name,mb.member_image_url, seq_group, seq_category, title, contents, read_count, tags, 
+			(select count(*) from wani.board_like bl where bd.seq_board = bl.seq_board and bl.use_yn = 'Y') as like_cnt,
+	        (select group_concat(image_url) as image_url from wani.board_image bi where bd.seq_board = bi.seq_board and bi.use_yn = 'Y') as image_url
+		FROM wani.board bd	
+			inner join wani.member mb on bd.seq_member = mb.seq_member and mb.use_yn = 'Y'
+		    inner join wani.board_comment bc on bd.seq_board = bc.seq_board and bc.use_yn = 'Y'    
+		    where bd.use_yn = 'Y'
+    ;
+    </select>
+    <!-- <select id="getMemberByUserNo" parameterType="int" resultType="com.rest.api.member.model.Member">
+        SELECT
+            user_no,
+            email,
+            member_name,
+            password
+        FROM
+            member
+        WHERE
+        	user_no = #{user_no}
+    </select>
+    <insert id="insertMember" parameterType="com.rest.api.member.model.Member" useGeneratedKeys="true" keyProperty="user_no">
+        INSERT INTO member 
+            (email,
+            name,
+            password)
+        VALUES
+            (#{email},
+            #{name},
+            #{password})
+    </insert>
+    <update id="updateMember" parameterType="com.rest.api.member.model.Member">
+        UPDATE member 
+		SET
+            email = #{email},
+            name = #{name},
+            password = #{password}
+        WHERE
+            user_no = #{user_no}
+    </update>
+    <delete id="deleteMember" parameterType="int">
+        DELETE FROM member 
+		WHERE user_no = #{user_no}
+    </delete> -->
+</mapper>
