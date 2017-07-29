@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rest.api.common.util.CommonUtil;
+import com.rest.api.member.model.Member;
 import com.rest.api.board.model.Board;
 import com.rest.api.board.service.BoardService;
 
@@ -18,20 +20,22 @@ public class BoardController {
 
     @Autowired
     BoardService boardService;
-     
-    @RequestMapping(value = "/boardList", method = RequestMethod.GET)
-    public ModelAndView memberList() {
+    
+    @ResponseBody
+    @RequestMapping(value = "/boardList", method = RequestMethod.POST)
+    public String memberList() {
 
     	List<Board> board =  boardService.getBoardList();
     	String json = CommonUtil.convertStringByModel(board);
     	
-    	ModelAndView model = new ModelAndView();
-		model.addObject("resultType", "boardList");
-        model.addObject("board", board);
-        model.addObject("jsonString", json);
-        model.setViewName("/board/board");
+    
+//    	ModelAndView model = new ModelAndView();
+//		model.addObject("resultType", "boardList");
+//        model.addObject("board", board);
+//        model.addObject("jsonString", json);
+//        model.setViewName("/board/board");
         
-        return model;
+        return json;
     }
 //
 //    @RequestMapping(value = "/memberByUserNo", method = RequestMethod.GET)    
