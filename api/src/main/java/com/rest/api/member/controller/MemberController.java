@@ -34,6 +34,23 @@ public class MemberController {
         
         return json;
     }    
+
+    @ResponseBody
+    @RequestMapping(value = "/signUp", method = RequestMethod.POST)
+    public String insertMember(HttpServletRequest request) {
+
+    	String id = request.getParameter("id").toString();
+    	String pass = request.getParameter("pass").toString();
+    	
+    	Member member = new Member();
+    	member.setEmail(id);
+    	member.setPassword(pass);
+        
+    	memberService.SignUp(member);
+    	String json = CommonUtil.convertStringByModel(member);
+
+        return json;
+    }    
     
     @ResponseBody
     @RequestMapping(value = "/memberList", method = RequestMethod.GET)

@@ -22,6 +22,11 @@ public class MemberServiceImpl implements MemberService{
     }
     
     @Override
+    public int SignUp(Member member) {
+    	return memberDao.SignUp(member);
+    }    
+    
+    @Override
     public List<Member> getMemberList() {
         return memberDao.getMemberList();
     }

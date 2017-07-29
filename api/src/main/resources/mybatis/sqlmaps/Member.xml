@@ -27,6 +27,15 @@
         	email = #{id} AND password = SHA2(#{pass}, 512);
     </select>
 
+    <insert id="SignUp" parameterType="com.rest.api.member.model.Member" useGeneratedKeys="true" keyProperty="user_no">
+        INSERT INTO member 
+            (email,
+            password)
+        VALUES
+            (#{email},
+            #{password})
+    </insert>
+
     <select id="getMemberList" resultType="com.rest.api.member.model.Member">
         SELECT
             seq_member,

@@ -7,6 +7,7 @@ import com.rest.api.member.model.Member;
 public interface MemberService {
     
 	Member SignIn(String id, String pass);
+    int SignUp(Member member);
 	
     List<Member> getMemberList();
     Member getMemberByUserNo(int user_no);

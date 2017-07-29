@@ -33,6 +33,11 @@ public class MemberDAOImpl implements MemberDAO {
     }
     
     @Override
+    public int SignUp(Member member) {
+    	return sqlSessionMaster.insert("SignUp", member);
+    }    
+    
+    @Override
     public List<Member> getMemberList() {         
         return sqlSessionMaster.selectList("getMemberList");
     }
