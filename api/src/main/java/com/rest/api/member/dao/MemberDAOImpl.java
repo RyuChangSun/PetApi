@@ -1,5 +1,6 @@
 package com.rest.api.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,6 +22,16 @@ public class MemberDAOImpl implements MemberDAO {
         this.sqlSessionMaster = sqlSession;
     }
  
+    @Override
+    public Member SignIn(String id, String pass)
+    {
+    	HashMap<String, String> input = new HashMap<String, String>();
+    	input.put("id", id);
+    	input.put("pass", pass);
+    	
+    	return sqlSessionMaster.selectOne("signIn", input);
+    }
+    
     @Override
     public List<Member> getMemberList() {         
         return sqlSessionMaster.selectList("getMemberList");

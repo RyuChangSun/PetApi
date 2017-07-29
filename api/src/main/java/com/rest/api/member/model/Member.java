@@ -2,16 +2,16 @@ package com.rest.api.member.model;
 
 public class Member {
 
-	private int user_no;
+	private int seq_member;
 	private String email;
-	private String name;
+	private String member_name;
 	private String password;
 	
-	public int getUser_no() {
-		return user_no;
+	public int getSeq_member() {
+		return seq_member;
 	}
-	public void setUser_no(int user_no) {
-		this.user_no = user_no;
+	public void setSeq_member(int seq_member) {
+		this.seq_member = seq_member;
 	}
 	public String getEmail() {
 		return email;
@@ -19,11 +19,11 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getName() {
-		return name;
+	public String getMember_name() {
+		return member_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 	public String getPassword() {
 		return password;
@@ -31,4 +31,6 @@ public class Member {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+
 }

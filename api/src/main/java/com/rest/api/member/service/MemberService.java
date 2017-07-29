@@ -5,7 +5,9 @@ import java.util.List;
 import com.rest.api.member.model.Member;
 
 public interface MemberService {
-     
+    
+	Member SignIn(String id, String pass);
+	
     List<Member> getMemberList();
     Member getMemberByUserNo(int user_no);
     int insertMember(Member member);
